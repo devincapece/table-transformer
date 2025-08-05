@@ -13,6 +13,15 @@ class TextRecognizer:
         models_dir (Path): Directory containing OCR model files
     """
     
+    # models/text_recognizer.py
+class TextRecognizer:
+    """
+    A class for performing OCR on detected tables using PaddleOCR.
+    
+    Attributes:
+        models_dir (Path): Directory containing OCR model files
+    """
+    
     def __init__(self, models_dir: Optional[Union[str, Path]] = None) -> None:
         """
         Initialize the TextRecognizer with model directory.
@@ -26,10 +35,9 @@ class TextRecognizer:
         self.model = PaddleOCR(
             use_angle_cls=False,
             lang='en',
-            det_model_dir=str(self.models_dir / 'det'),
-            rec_model_dir=str(self.models_dir / 'rec')
+            #det_model_dir=str(self.models_dir / 'det'),
+            #rec_model_dir=str(self.models_dir / 'rec')
         )
-
     def _setup_model_dirs(self) -> None:
         """Create necessary directories for model files."""
         (self.models_dir / 'det').mkdir(parents=True, exist_ok=True)
